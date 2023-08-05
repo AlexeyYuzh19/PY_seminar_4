@@ -31,7 +31,7 @@ import random
 from termcolor import colored 
 '''
 Если нет модуля termcolor - для установки можно использовать команду в терминале: pip install termcolor
-Для Linux или macOS, возможно потребуется sudo pip install termcolor
+Для Linux или macOS - команда sudo pip install termcolor
 '''
 choice = input(colored('Выберите способ ввода :\n', 'magenta') + colored('" 1 " - набор с клавиатуры : \n', 'cyan') + colored('" 2 " - рандомно с заданием параметров : \n', 'green') + colored('"произвольный символ" - рандомно : ', 'cyan'))
 if choice == '1':
