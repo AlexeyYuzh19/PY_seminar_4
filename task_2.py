@@ -35,7 +35,7 @@ import re
 import random
 from termcolor import colored 
 
-print(colored(' Корелия известна красивыми историческими достопримечательностями и живописными пейзажами. ', 'green', 'on_light_grey', attrs=['bold']))
+print(colored(' Карелия известна красивыми историческими достопримечательностями и живописными пейзажами. ', 'green', 'on_light_grey', attrs=['bold']))
 choice = input(colored('Выберите способ ввода количества ягод на каждом кусте черники :\n', 'magenta') + colored('" 1 " - набор с клавиатуры : \n', 'cyan') + colored('" 2 " - рандомно с заданием параметров : \n', 'green') + colored('"произвольный символ" - рандомно : ', 'cyan'))
 if choice == '1':
     while True:       
