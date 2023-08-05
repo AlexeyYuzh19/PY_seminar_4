@@ -98,15 +98,19 @@ elif choice == '2':
             break           
         except ValueError:
             print(colored('Ошибка! Введено не число.', 'red'))    
-    resBlu = list(map(int, (random.randint(minBlu, maxBlu) for _ in range(countBlu))))
-    print(resBlu)
+    resBlu = list(map(int, (random.randint(minBlu, maxBlu) for _ in range(countBlu))))    
     if countBlu > 2 and all(value == 0 for value in resBlu):
                 index = random.randint(0, len(resBlu)-1)
                 resBlu[index] = 1               
 else:
     resBlu = list(map(int, (random.randint(1, 100) for _ in range(25))))        
 print(colored(f' Заданы кусты с количеством ягод на каждом : \n{resBlu}', 'green', 'on_light_grey'))
+blueberMax = 0 
+bushWord = ' и двух соседних с ним.' 
 blueberMax = sum(resBlu) if len(resBlu) < 3 else max(resBlu[i] + resBlu[(i-1)%len(resBlu)] + resBlu[(i+1)%len(resBlu)] for i in range(len(resBlu)))
-bushMax = 1 if len(resBlu) < 2 else max(range(len(resBlu)), key=lambda i: resBlu[i] + resBlu[(i-1)%len(resBlu)] + resBlu[(i+1)%len(resBlu)]) + 1
-bushWord = '.' if bushMax == 1 else ' и соседних с ним.'
+bushMax = resBlu.index(max(resBlu)) + 1 if len(resBlu) < 3 else max(range(len(resBlu)), key=lambda i: resBlu[i] + resBlu[(i-1)%len(resBlu)] + resBlu[(i+1)%len(resBlu)]) + 1
+if len(resBlu) == 1:     
+    bushWord = '.' 
+elif len(resBlu) == 2:
+    bushWord = ' и соседнего с ним.' 
 print(colored('Максимальное количество ягод: {}, собрано c куста {}{}\n'.format(blueberMax, bushMax, bushWord), 'green'))
